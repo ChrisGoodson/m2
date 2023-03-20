@@ -41,6 +41,7 @@ function App() {
         title="h(n) / 2lg(n) versus n"
         xTitle="n"
         yTitle="h(n) / 2lg(n)"
+        zoomOut={true}
       />
       <GraphTable
         traceData={trace2}

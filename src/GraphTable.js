@@ -1,11 +1,13 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 
-function GraphTable({ traceData, tableData, title, xTitle, yTitle }) {
+function GraphTable({ traceData, tableData, title, xTitle, yTitle, zoomOut }) {
+  const yAxisRange = zoomOut ? { range: [traceData.y[0] - 0.5, traceData.y.slice(-1)[0] + 0.5] } : {};
+
   return (
     <div className="row">
       <div className="col-md-8">
-        <Plot data={[traceData]} layout={{ title, xaxis: { title: xTitle }, yaxis: { title: yTitle } }} />
+        <Plot data={[traceData]} layout={{ title, xaxis: { title: xTitle }, yaxis: { title: yTitle, ...yAxisRange } }} />
         <table className="table table-striped">
           <thead>
             <tr>
